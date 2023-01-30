@@ -1,0 +1,5 @@
+/*Add Tailwind to Todo*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
