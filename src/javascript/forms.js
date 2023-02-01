@@ -4,7 +4,7 @@ import { domElement } from "./factoryDOM";
 function formBase() {
     const formBase = domElement('div', {id: 'authentication-modal', tabindex: '-1',class: 'fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full'},
         domElement('div', {class: 'relative w-full h-full max-w-lg md:h-auto'},
-            domElement('div', {class: 'relative bg-yellow-200 rounded-lg shadow dark:bg-gray-500'})));
+            domElement('div', {class: 'relative bg-white rounded-lg shadow dark:bg-gray-500'})));
 
     return formBase;
 }
@@ -16,6 +16,6 @@ export function renderProjectForm() {
             domElement('div', {}, 
                 domElement('label', {for: 'title', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Title: '),
                 domElement('input', {type: 'text', name: 'title', id: 'title', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white'}))));
-    form.lastChild.appendChild(formProject);
+    form.firstChild.lastChild.appendChild(formProject);
     return form;
 }
