@@ -15,7 +15,10 @@ export function renderProjectForm() {
         domElement('form', {class: 'space-y-6', action: '#'},
             domElement('div', {}, 
                 domElement('label', {for: 'title', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Title: '),
-                domElement('input', {type: 'text', name: 'title', id: 'title', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white'}))));
+                domElement('input', {type: 'text', name: 'title', id: 'title', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white'})),
+            domElement('div', {},
+                domElement('label', {for: 'due-date', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Due Date: '),
+                domElement('input', {type: 'date', name: 'due-date', id: 'due-date', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white'}))));
     form.firstChild.lastChild.appendChild(formProject);
     return form;
 }
