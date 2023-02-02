@@ -5,7 +5,7 @@ import { renderNav } from './nav';
 import { renderProjectView } from './projectsDOM';
 import 'flowbite';
 
-document.documentElement.classList.add('dark:bg-stone-600');
+document.documentElement.classList.add('dark:bg-gray-600');
 renderNav();
 renderProjectView();
 
