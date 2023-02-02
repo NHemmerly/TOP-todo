@@ -13,3 +13,7 @@ export function addCard() {
         openForm(1);
     }
 }
+
+export function addProjectCard() {
+    
+}
