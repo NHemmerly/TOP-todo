@@ -11,11 +11,12 @@ function formBase() {
 export function renderProjectForm() {
     const form = formBase();
     const formProject = domElement('div', {class: 'px-6 py-6 lg:px-8'},
-        domElement('div', {class: 'flex'},
-            domElement('div', {class: 'bg-red-400 w-90 rounded border border-red-300'},
-                domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.'))),
-            domElement('a', {class: 'block text-black dark:text-white'}, 'X'),
-        domElement('h3', {class: 'mb-4 text-xl font-medium text-black dark:text-white'}, 'Create a Project'),
+    domElement('div', {class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300'},
+    domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
+    domElement('div', {class: 'flex flex-row my-3'},
+        domElement('h3', {class: 'mb-4 w-full text-xl font-medium text-black dark:text-white'}, 'Create a Project'),
+        domElement('a', {class: 'mr-1 text-xl text-black dark:text-white'}, 'X')
+    ),
         domElement('form', {id: 'new-project',class: 'space-y-6', action: '#'},
             domElement('div', {}, 
                 domElement('label', {for: 'title', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Title: '),
