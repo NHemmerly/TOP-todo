@@ -1,3 +1,6 @@
+import { projectFactory } from './project.js';
+import { myProjects } from './project.js';
+
 //Function for adding card to dom using '+' button
 
 import {renderProjectForm} from './forms.js';
@@ -14,6 +17,18 @@ export function addCard() {
     }
 }
 
-export function addProjectCard() {
-    
+export function addProjectCard(e) {
+    e.preventDefault();
+    const project = document.getElementById('new-project');
+    const projectInputs = project.querySelectorAll('input');
+    let projectArray = Array.from(projectInputs).reduce(
+        (acc, input) => ({ ...acc, [input.id]: input.value }),
+        {}
+    );
+
+    const newProject = projectFactory(projectArray.title, projectArray['due-date'], []);
+    console.log(newProject);
+
+    myProjects.push(newProject);
+
 }
