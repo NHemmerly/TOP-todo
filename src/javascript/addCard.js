@@ -1,5 +1,6 @@
 import { projectFactory } from './project.js';
 import { myProjects } from './project.js';
+import { createProjectCard } from './projectsDOM.js';
 
 //Function for adding card to dom using '+' button
 
@@ -28,7 +29,8 @@ export function addProjectCard(e) {
 
     const newProject = projectFactory(projectArray.title, projectArray['due-date'], []);
     console.log(newProject);
-
+    createProjectCard(newProject);
     myProjects.push(newProject);
 
 }
+
