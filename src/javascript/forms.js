@@ -11,6 +11,10 @@ function formBase() {
 export function renderProjectForm() {
     const form = formBase();
     const formProject = domElement('div', {class: 'px-6 py-6 lg:px-8'},
+        domElement('div', {class: 'flex'},
+            domElement('div', {class: 'bg-red-400 w-90 rounded border border-red-300'},
+                domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.'))),
+            domElement('a', {class: 'block text-black dark:text-white'}, 'X'),
         domElement('h3', {class: 'mb-4 text-xl font-medium text-black dark:text-white'}, 'Create a Project'),
         domElement('form', {id: 'new-project',class: 'space-y-6', action: '#'},
             domElement('div', {}, 

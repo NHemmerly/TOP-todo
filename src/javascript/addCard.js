@@ -18,6 +18,7 @@ export function addCard() {
     }
 }
 
+
 export function addProjectCard(e) {
     e.preventDefault();
     const project = document.getElementById('new-project');
@@ -31,6 +32,7 @@ export function addProjectCard(e) {
     console.log(newProject);
     createProjectCard(newProject);
     myProjects.push(newProject);
+    console.log(myProjects);
 
 }
 
