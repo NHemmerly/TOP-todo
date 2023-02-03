@@ -24,7 +24,9 @@ export function renderProjectForm() {
             domElement('div', {},
                 domElement('label', {for: 'due-date', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Due Date: '),
                 domElement('input', {type: 'date', name: 'due-date', id: 'due-date', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white required'})),
-            domElement('button', {'data-modal-target': 'authentication-modal', id: 'project-button', type:'submit', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Create New Project')));
+            domElement('button', {id: 'project-button', type:'submit', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Create New Project'),
+            domElement('button', {id: 'close-button', 'data-modal-target': 'authentication-modal', 'data-modal-hide': 'authentication-modal', class: 'w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form')));
+
     form.firstChild.lastChild.appendChild(formProject);
     return form;
 }

@@ -1,7 +1,6 @@
 import { projectFactory } from './project.js';
 import { myProjects } from './project.js';
 import { createProjectCard } from './projectsDOM.js';
-import {hideModal} from './modal.js';
 
 //Function for adding card to dom using '+' button
 
@@ -34,6 +33,7 @@ export function addProjectCard(e) {
         const newProject = projectFactory(projectArray.title, projectArray['due-date'], []);
         createProjectCard(newProject);
         myProjects.push(newProject);
+        project.reset();
     }
 }
 
