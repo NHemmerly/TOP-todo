@@ -13,6 +13,8 @@ export function renderNav(){
     document.body.appendChild(nav);
     const newProjectButton = document.getElementById('project-button');
     newProjectButton.addEventListener('click', addProjectCard);
-    document.getElementById('close-button').addEventListener('click', () => document.getElementById('error-message').classList.add('hidden'));
+    document.getElementById('close-button').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('error-message').classList.add('hidden');});
 
 }
