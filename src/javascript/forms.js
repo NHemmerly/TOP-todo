@@ -1,15 +1,15 @@
 import { domElement } from "./factoryDOM";
 
 //Functions to render both forms to DOM
-function formBase() {
-    const formBase = domElement('div', {id: 'authentication-modal', tabindex: '-1',class: 'fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full'},
+function formBase(id) {
+    const formBase = domElement('div', {id: `${id}`, tabindex: '-1',class: 'fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full'},
         domElement('div', {class: 'relative w-full h-full max-w-lg md:h-auto'},
             domElement('div', {class: 'relative bg-white rounded-lg shadow dark:bg-gray-500'})));
 
     return formBase;
 }
 export function renderProjectForm() {
-    const form = formBase();
+    const form = formBase('authentication-modal');
     const formProject = domElement('div', {class: 'px-6 py-6 lg:px-8'},
     domElement('div', {id: 'error-message',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
     domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
@@ -17,7 +17,7 @@ export function renderProjectForm() {
         domElement('h3', {class: 'mb-4 w-full text-xl font-medium text-black dark:text-white'}, 'Create a Project'),
         domElement('a', {'data-modal-target': 'authentication-modal', 'data-modal-hide': 'authentication-modal', class: 'cursor-pointer mr-1 text-xl text-black dark:text-white'}, 'X')
     ),
-        domElement('form', {id: 'new-project',class: 'space-y-6', action: '#'},
+        domElement('form', {id: 'project-form',class: 'space-y-6', action: '#'},
             domElement('div', {}, 
                 domElement('label', {for: 'title', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Title: '),
                 domElement('input', {type: 'text', name: 'title', id: 'title', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white required'})),
@@ -25,8 +25,31 @@ export function renderProjectForm() {
                 domElement('label', {for: 'due-date', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Due Date: '),
                 domElement('input', {type: 'date', name: 'due-date', id: 'due-date', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white required'})),
             domElement('button', {id: 'project-button', type:'submit', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Create New Project'),
-            domElement('button', {id: 'close-button', 'data-modal-target': 'authentication-modal', 'data-modal-hide': 'authentication-modal', class: 'w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form')));
+            domElement('button', {id: 'close-button', 'data-modal-target': 'authentication-modal', 'data-modal-hide': 'authentication-modal', class: 'close-button w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form')));
 
     form.firstChild.lastChild.appendChild(formProject);
+    return form;
+}
+
+export function renderTaskForm() {
+    const form = formBase('new-task-modal');
+    const formTask = domElement('div', {class: 'px-6 py-6 lg:px-8'},
+    domElement('div', {id: 'error-message',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
+    domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
+    domElement('div', {class: 'flex flex-row my-3'},
+        domElement('h3', {class: 'mb-4 w-full text-xl font-medium text-black dark:text-white'}, 'Create a Task'),
+        domElement('a', {'data-modal-target': 'new-task-modal', 'data-modal-hide': 'new-task-modal', class: 'cursor-pointer mr-1 text-xl text-black dark:text-white'}, 'X')
+    ),
+        domElement('form', {id: 'task-form',class: 'space-y-6', action: '#'},
+            domElement('div', {}, 
+                domElement('label', {for: 'title', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Title: '),
+                domElement('input', {type: 'text', name: 'title', id: 'title', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white required'})),
+            domElement('div', {},
+                domElement('label', {for: 'due-date', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Due Date: '),
+                domElement('input', {type: 'date', name: 'due-date', id: 'due-date', class: 'bg-gray-100 border border-gray-400 text-black text-sm rounded-lg focus:ring-blue-500 black w-full p-2.5 dark:bg-gray-500 dark:text-white required'})),
+            domElement('button', {id: 'task-button', type:'submit', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Create New Task'),
+            domElement('button', {id: 'close-button', 'data-modal-target': 'new-task-modal', 'data-modal-hide': 'new-task-modal', class: 'close-button w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form')));
+
+    form.firstChild.lastChild.appendChild(formTask);
     return form;
 }

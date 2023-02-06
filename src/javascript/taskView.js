@@ -14,4 +14,6 @@ export function makeTaskView(projectTitle) {
     backButton.addEventListener('click', renderAllProjects);
     project.appendChild(backButton);
     project.firstChild.innerText = projectTitle;
+    document.getElementById('new-project').classList.add('hidden');
+    document.getElementById('new-task').classList.remove('hidden');
 }

@@ -19,20 +19,27 @@ export function addCard() {
     }
 }
 
-export function addProjectCard(e) {
+function collectFormData(e) {
     e.preventDefault();
-    const project = document.getElementById('new-project');
+    const target = e.target;
+    const project = target.parentElement;
     const projectInputs = project.querySelectorAll('input');
     let projectArray = Array.from(projectInputs).reduce(
         (acc, input) => ({ ...acc, [input.id]: input.value }),
         {}
     );
-    if (!(validateProjectForm(projectArray))) {
+    return projectArray;
+}
+
+export function addProjectCard(e) {
+    let info = collectFormData(e);
+    if (!(validateProjectForm(info))) {
         return false;
     } else {    
-        const newProject = projectFactory(projectArray.title, projectArray['due-date'], []);
+        const newProject = projectFactory(info.title, info['due-date'], []);
         createProjectCard(newProject);
         myProjects.push(newProject);
+        console.log(myProjects);
         project.reset();
     }
 }
