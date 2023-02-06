@@ -32,6 +32,9 @@ export function renderProjectForm() {
 }
 
 export function renderTaskForm() {
+    const radioList = ('w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600');
+    const radioInput = ('w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500');
+    const radioLabel = ('w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300');
     const form = formBase('new-task-modal');
     const formTask = domElement('div', {class: 'px-6 py-6 lg:px-8'},
     domElement('div', {id: 'error-message',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
@@ -50,9 +53,28 @@ export function renderTaskForm() {
             domElement('div', {},
                 domElement('label', {for: 'priority', class: 'black mb-2 text-sm font-medium text-black dark:text-white'}, 'Priority: '),
                 domElement('ul', {class: 'items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white'},
-                    domElement('li'))),
+                    domElement('li', {class: `${radioList}`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-1', type: 'radio', value: '', name: 'priority',class: `${radioInput}`}),
+                            domElement('label', {for: 'priority-1',class: `${radioLabel}`}, 'low'))),
+                    domElement('li', {class: `${radioList}`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-2', type: 'radio', value: '', name: 'priority',class: `${radioInput}`}),
+                            domElement('label', {for: 'priority-2',class: `${radioLabel}`}, '2'))),
+                    domElement('li', {class: `${radioList}`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-3', type: 'radio', value: '', name: 'priority',class: `${radioInput}`}),
+                            domElement('label', {for: 'priority-3',class: `${radioLabel}`}, 'med'))),
+                    domElement('li', {class: `${radioList}`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-4', type: 'radio', value: '', name: 'priority',class: `${radioInput}`}),
+                            domElement('label', {for: 'priority-4',class: `${radioLabel}`}, '4'))),
+                    domElement('li', {class: `${radioList}`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-5', type: 'radio', value: '', name: 'priority',class: `${radioInput}`}),
+                            domElement('label', {for: 'priority-5',class: `${radioLabel}`}, 'high')))),                            
             domElement('button', {id: 'task-button', type:'submit', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Create New Task'),
-            domElement('button', {id: 'close-button', 'data-modal-target': 'new-task-modal', 'data-modal-hide': 'new-task-modal', class: 'close-button w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form')));
+            domElement('button', {id: 'close-button', 'data-modal-target': 'new-task-modal', 'data-modal-hide': 'new-task-modal', class: 'close-button w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form'))));
 
     form.firstChild.lastChild.appendChild(formTask);
     return form;

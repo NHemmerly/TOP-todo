@@ -1,6 +1,6 @@
 import { domElement } from "./factoryDOM";
 import { renderProjectForm, renderTaskForm} from './forms';
-import { addProjectCard } from "./addCard";
+import { addProjectCard, addTaskCard } from "./addCard";
 
 export function renderNav(){
     const nav = domElement('nav', {class: 'p-3 m-3 mx-4 border-yellow-400 rounded bg-yellow-400 dark:bg-stone-700 dark:border-yellow-700'},

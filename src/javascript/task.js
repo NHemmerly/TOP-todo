@@ -1,4 +1,5 @@
 //Factory function that creates a task 
+export {taskFactory};
 
 const taskFactory = (title, dueDate, priority, desc, completed) => {
     this.title = title;
