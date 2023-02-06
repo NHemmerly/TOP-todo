@@ -1,12 +1,20 @@
 import { domElement } from "./factoryDOM";
 import { makeTaskView } from "./taskView";
 import { clearAll } from "./clearBoard";
+import { myProjects } from "./project";
 
 export function renderProjectView() {
-    const projectView = domElement('div', {id: 'project',class: 'flex self-center justify-between text-2xl mx-4 font-semibold whitespace-nowrap text-white border-yellow-400 rounded bg-yellow-400 dark:bg-stone-700'}, 
-        domElement('span', {class: 'self-center text-2xl mx-2 my-2 font-semibold whitespace-nowrap text-white'}, 'Projects'));
+    const projectView = domElement('div', {id: 'project',class: 'flex self-center justify-between text-2xl p-3 mx-4 px-5 font-semibold whitespace-nowrap text-white border-yellow-400 rounded bg-yellow-400 dark:bg-stone-700'}, 
+        domElement('span', {class: 'self-center text-3xl my-2 mx-3 font-semibold whitespace-nowrap text-white'}, 'Projects'));
     
     document.body.appendChild(projectView);
+}
+
+export function renderAllProjects() {
+    clearAll();
+    myProjects.forEach(project => createProjectCard(project));
+    document.getElementById('project').firstChild.innerText = 'Projects';
+    document.getElementById('back-button').remove();
 }
 
 export function createProjectCard(project) {
