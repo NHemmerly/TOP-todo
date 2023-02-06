@@ -20,7 +20,7 @@ export function renderNav(){
     newProjectButton.addEventListener('click', addProjectCard);
 
     const newTaskButton = document.getElementById('task-button');
-    newTaskButton.addEventListener('click', addProjectCard);
+    newTaskButton.addEventListener('click', addTaskCard);
 
     const closeBtns = document.querySelectorAll('.close-button')
     closeBtns.forEach(btn => btn.addEventListener('click', (e) => {
