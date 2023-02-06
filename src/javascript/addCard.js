@@ -34,12 +34,14 @@ function collectFormData(e) {
 
 export function addTaskCard(e) {
     let info = collectFormData(e);
+    console.log(info);
     if (!(validateProjectForm(info))) {
         return false;
     } else {
         const currProj = myProjects.find(project => project.title = document.getElementById('project').firstChild.innerText);
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
         currProj.tasks.push(newTask);
+        console.log(newTask);
     }
 }
 
