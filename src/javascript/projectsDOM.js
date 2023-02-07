@@ -15,6 +15,13 @@ export function renderAllProjects() {
     myProjects.forEach(project => createProjectCard(project));
     document.getElementById('project').firstChild.innerText = 'Projects';
     document.getElementById('back-button').remove();
+    document.getElementById('new-project').classList.remove('hidden');
+    document.getElementById('new-task').classList.add('hidden');
+}
+
+function renderAllTasks(tasks) {
+    clearAll();
+    tasks.forEach(task => createTaskCard(task));
 }
 
 export function createProjectCard(project) {
@@ -22,7 +29,10 @@ export function createProjectCard(project) {
                         domElement('h3', {class: 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'}, `${project.title}`),
                         domElement('h5', {class: 'font-normal text-gray-700 dark:text-gray-400'}, `Due: ${project.dueDate}`))
     document.getElementById('project-grid').appendChild(newCard);
-    newCard.addEventListener('click', () => makeTaskView(`${project.title}`));
+    newCard.addEventListener('click', () => { 
+        makeTaskView(`${project.title}`);
+        renderAllTasks(project.tasks);
+    });
     return newCard;
 }
 
