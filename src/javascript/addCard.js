@@ -24,7 +24,7 @@ export function addTaskCard(e) {
     if (!(validateProjectForm(info))) {
         return false;
     } else {
-        const currProj = myProjects.find(project => project.title = document.getElementById('project').firstChild.innerText);
+        const currProj = myProjects.find(project => project.title == document.getElementById('project').firstChild.innerText);
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
         createTaskCard(newTask);
         currProj.tasks.push(newTask);
