@@ -25,8 +25,9 @@ function collectFormData(e) {
     const target = e.target;
     const project = target.parentElement;
     const projectInputs = project.querySelectorAll('input');
-    let projectArray = Array.from(projectInputs).reduce(
-        (acc, input) => ({ ...acc, [input.id]: input.value }),
+    let projectArray = Array.from(projectInputs).filter(input => input.type != 'radio' || input.type == 'radio' && input.checked)
+    .reduce(
+        (acc, input) => ({ ...acc, [input.name]: input.value }),
         {}
     );
     return projectArray;
@@ -43,7 +44,7 @@ export function addTaskCard(e) {
         createTaskCard(newTask);
         currProj.tasks.push(newTask);
         console.log(newTask);
-        document.getElementById('task-form').reset();
+        document.getElementById('task-form');
     }
 }
 
