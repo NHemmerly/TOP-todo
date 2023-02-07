@@ -1,6 +1,6 @@
 import { projectFactory } from './project.js';
 import { myProjects } from './project.js';
-import { createProjectCard } from './projectsDOM.js';
+import { createProjectCard, createTaskCard } from './projectsDOM.js';
 import { taskFactory } from './task';
 
 //Function for adding card to dom using '+' button
@@ -40,8 +40,10 @@ export function addTaskCard(e) {
     } else {
         const currProj = myProjects.find(project => project.title = document.getElementById('project').firstChild.innerText);
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
+        createTaskCard(newTask);
         currProj.tasks.push(newTask);
         console.log(newTask);
+        document.getElementById('task-form').reset();
     }
 }
 

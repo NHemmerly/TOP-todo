@@ -26,6 +26,16 @@ export function createProjectCard(project) {
     return newCard;
 }
 
+export function createTaskCard(task) {
+    const newCard = domElement('button', {id: `${task.title}`, class: 'block max-w-sm min-h-full p-6 bg-white border border-yellow-200 rounded-lg shadow hover:bg-yellow-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer'},
+                        domElement('div', {class: 'flex flex-row my-3'},
+                            domElement('h3', {class: 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'}, `${task.title}`),
+                            domElement('a', {class: 'cursor-pointer mr-1 text-xl text-black dark:text-white'}, 'O')),
+                        domElement('h5', {class: 'font-normal text-gray-700 dark:text-gray-400'}, `Due: ${task.dueDate}`))
+    document.getElementById('project-grid').appendChild(newCard);
+    return newCard;
+}
+
 export function renderDomCards() {
     const cardGrid = domElement('div', {class: 'p-3 m-3 mx-4'},
     domElement('div', {id: 'project-grid',class: 'grid grid-cols-2 md:grid-cols-4 gap-4'})
