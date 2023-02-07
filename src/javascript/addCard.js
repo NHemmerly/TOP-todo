@@ -4,21 +4,7 @@ import { createProjectCard, createTaskCard } from './projectsDOM.js';
 import { taskFactory } from './task';
 
 //Function for adding card to dom using '+' button
-
-import {renderProjectForm} from './forms.js';
 import { validateProjectForm } from './validate.js';
-function openForm(id) {
-    (id == 0) ? document.body.appendChild(renderProjectForm()) : renderTaskForm();
-}
-
-export function addCard() {
-    console.log('hello');
-    if (document.getElementById('project') != null) {
-        openForm(0);
-    } else {
-        openForm(1);
-    }
-}
 
 function collectFormData(e) {
     e.preventDefault();
@@ -35,7 +21,6 @@ function collectFormData(e) {
 
 export function addTaskCard(e) {
     let info = collectFormData(e);
-    console.log(info);
     if (!(validateProjectForm(info))) {
         return false;
     } else {
@@ -43,7 +28,6 @@ export function addTaskCard(e) {
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
         createTaskCard(newTask);
         currProj.tasks.push(newTask);
-        console.log(newTask);
         document.getElementById('task-form');
     }
 }
@@ -56,7 +40,6 @@ export function addProjectCard(e) {
         const newProject = projectFactory(info.title, info['due-date'], []);
         createProjectCard(newProject);
         myProjects.push(newProject);
-        console.log(myProjects);
         document.getElementById('project-form').reset();
     }
 }
