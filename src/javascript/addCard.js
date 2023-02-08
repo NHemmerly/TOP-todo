@@ -21,6 +21,7 @@ function collectFormData(e) {
 
 export function addTaskCard(e) {
     let info = collectFormData(e);
+    console.log(info);
     if (!(validateProjectForm(info, 'error-message-task'))) {
         return false;
     } else {
@@ -28,7 +29,7 @@ export function addTaskCard(e) {
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
         createTaskCard(newTask);
         currProj.tasks.push(newTask);
-        document.getElementById('task-form');
+        document.getElementById('task-form').reset();
     }
 }
 
