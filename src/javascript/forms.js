@@ -37,7 +37,7 @@ export function renderTaskForm() {
     const radioLabel = ('w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300');
     const form = formBase('new-task-modal');
     const formTask = domElement('div', {class: 'px-6 py-6 lg:px-8'},
-    domElement('div', {id: 'error-message',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
+    domElement('div', {id: 'error-message-task',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
     domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
     domElement('div', {class: 'flex flex-row my-3'},
         domElement('h3', {class: 'mb-4 w-full text-xl font-medium text-black dark:text-white'}, 'Create a Task'),

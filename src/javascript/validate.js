@@ -1,7 +1,7 @@
 //Validate form inputs 
 
-export function validateProjectForm(input) {
-    const error = document.getElementById('error-message');
+export function validateProjectForm(input, errID) {
+    const error = document.getElementById(errID);
         if (input.title === '' || input['due-date'] === '') {
             error.classList.remove('hidden');
             return false;

@@ -21,7 +21,7 @@ function collectFormData(e) {
 
 export function addTaskCard(e) {
     let info = collectFormData(e);
-    if (!(validateProjectForm(info))) {
+    if (!(validateProjectForm(info, 'error-message-task'))) {
         return false;
     } else {
         const currProj = myProjects.find(project => project.title == document.getElementById('project').firstChild.innerText);
@@ -34,7 +34,7 @@ export function addTaskCard(e) {
 
 export function addProjectCard(e) {
     let info = collectFormData(e);
-    if (!(validateProjectForm(info))) {
+    if (!(validateProjectForm(info, 'error-message'))) {
         return false;
     } else {    
         const newProject = projectFactory(info.title, info['due-date'], []);

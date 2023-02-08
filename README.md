@@ -21,6 +21,6 @@ the end goal of the project, such as programming validation for a form or
 coding the template for cards that appear on the screen into actually making
 cards appear on the screen based on user input. 
 
-A nice to have for this project would be a checklist included with each 
+A nice-to-have for this project would be a checklist included with each 
 tasks where they can be divided into smaller increasingly managable
 chunks. 
