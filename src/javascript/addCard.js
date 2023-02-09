@@ -22,10 +22,10 @@ function collectFormData(e) {
 export function addTaskCard(e) {
     let info = collectFormData(e);
     console.log(info);
-    if (!(validateProjectForm(info, 'error-message-task'))) {
+    const currProj = myProjects.find(project => project.title == document.getElementById('project').firstChild.innerText);
+    if (!(validateProjectForm(info, 'error-message-task', currProj.tasks))) {
         return false;
     } else {
-        const currProj = myProjects.find(project => project.title == document.getElementById('project').firstChild.innerText);
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
         createTaskCard(newTask);
         currProj.tasks.push(newTask);
@@ -35,7 +35,7 @@ export function addTaskCard(e) {
 
 export function addProjectCard(e) {
     let info = collectFormData(e);
-    if (!(validateProjectForm(info, 'error-message'))) {
+    if (!(validateProjectForm(info, 'error-message', myProjects))) {
         return false;
     } else {    
         const newProject = projectFactory(info.title, info['due-date'], []);

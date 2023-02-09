@@ -13,8 +13,6 @@ export function renderProjectForm() {
     const formProject = domElement('div', {class: 'px-6 py-6 lg:px-8'},
     domElement('div', {id: 'error-message',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
         domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
-    domElement('div', {id: 'error-title',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
-        domElement('p', {class: 'text-red-900'}, 'Title already in use.')),
     domElement('div', {class: 'flex flex-row my-3'},
         domElement('h3', {class: 'mb-4 w-full text-xl font-medium text-black dark:text-white'}, 'Create a Project'),
         domElement('a', {'data-modal-target': 'authentication-modal', 'data-modal-hide': 'authentication-modal', class: 'cursor-pointer mr-1 text-xl text-black dark:text-white'}, 'X')
@@ -40,7 +38,7 @@ export function renderTaskForm() {
     const form = formBase('new-task-modal');
     const formTask = domElement('div', {class: 'px-6 py-6 lg:px-8'},
     domElement('div', {id: 'error-message-task',class: 'flex content-center p-1 bg-red-400 w-full rounded border border-red-300 hidden'},
-    domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
+        domElement('p', {class: 'text-red-900'}, 'Please Fill Entire Form.')),
     domElement('div', {class: 'flex flex-row my-3'},
         domElement('h3', {class: 'mb-4 w-full text-xl font-medium text-black dark:text-white'}, 'Create a Task'),
         domElement('a', {'data-modal-target': 'new-task-modal', 'data-modal-hide': 'new-task-modal', class: 'cursor-pointer mr-1 text-xl text-black dark:text-white'}, 'X')
