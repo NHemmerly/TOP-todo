@@ -6,7 +6,7 @@ export function validateProjectForm(input, errID, arr) {
     const pleaseFill = 'Please complete form.';
     console.log(input)
     for (let value of Object.values(input)) {
-        if (value === '') {
+        if (value === '' || value === 'err') {
             error.innerText = pleaseFill;
             error.classList.remove('hidden');
             return false;

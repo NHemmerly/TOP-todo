@@ -72,6 +72,10 @@ export function renderTaskForm() {
                     domElement('li', {class: `${radioList}`},
                         domElement('div', {class: 'flex items-center pl-3'},
                             domElement('input', {id: 'priority-5', type: 'radio', value: '5', name: 'priority',class: `${radioInput}`}),
+                            domElement('label', {for: 'priority-5',class: `${radioLabel}`}, 'high'))),
+                    domElement('li', {class: `${radioList} hidden`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-5', type: 'radio', value: 'err', name: 'priority',class: `${radioInput}`, checked: 'checked'}),
                             domElement('label', {for: 'priority-5',class: `${radioLabel}`}, 'high'))))),
             domElement('div', {class: 'mb-4'},
                 domElement('label', {for: 'desc', class: 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'}, 'Description: '),
@@ -86,7 +90,11 @@ export function renderTaskForm() {
                     domElement('li', {class: `${radioList}`},
                         domElement('div', {class: 'flex items-center pl-3'},
                             domElement('input', {id: 'no', type: 'radio', value: '1', name: 'completed',class: `${radioInput}`}),
-                            domElement('label', {for: 'no',class: `${radioLabel}`}, 'no'))))),                    
+                            domElement('label', {for: 'no',class: `${radioLabel}`}, 'no'))),
+                    domElement('li', {class: `${radioList} hidden`},
+                        domElement('div', {class: 'flex items-center pl-3'},
+                            domElement('input', {id: 'priority-5', type: 'radio', value: 'err', name: 'completed',class: `${radioInput}`, checked: 'checked'}),
+                            domElement('label', {for: 'priority-5',class: `${radioLabel}`}, 'high'))))),
             domElement('button', {id: 'task-button', type:'submit', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Create New Task'),
             domElement('button', {id: 'close-button', 'data-modal-target': 'new-task-modal', 'data-modal-hide': 'new-task-modal', class: 'close-button w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Close Form')));
 
