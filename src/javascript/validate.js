@@ -1,6 +1,4 @@
 //Validate form inputs 
-import { myProjects } from "./project";
-
 export function validateProjectForm(input, errID, arr) {
     const error = document.getElementById(errID);
     const pleaseFill = 'Please complete form.';

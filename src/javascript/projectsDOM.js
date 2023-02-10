@@ -1,8 +1,11 @@
+//File for top level of DOM rendering for cards and project view
+
 import { domElement } from "./factoryDOM";
 import { makeTaskView } from "./taskView";
 import { clearAll } from "./clearBoard";
 import { myProjects } from "./project";
 
+//Builds initial heading for the projects tab
 export function renderProjectView() {
     const projectView = domElement('div', {id: 'project',class: 'flex self-center justify-between text-2xl p-3 mx-4 px-5 font-semibold whitespace-nowrap text-white border-yellow-400 rounded bg-yellow-400 dark:bg-stone-700'}, 
         domElement('span', {class: 'self-center text-3xl my-2 mx-3 font-semibold whitespace-nowrap text-white'}, 'Projects'));
@@ -10,6 +13,7 @@ export function renderProjectView() {
     document.body.appendChild(projectView);
 }
 
+//Render all projects that exist in the myProjects array
 export function renderAllProjects() {
     clearAll();
     myProjects.forEach(project => createProjectCard(project));
@@ -19,11 +23,13 @@ export function renderAllProjects() {
     document.getElementById('new-task').classList.add('hidden');
 }
 
+//Renders all task cards in a project objects tasks array
 function renderAllTasks(tasks) {
     clearAll();
     tasks.forEach(task => createTaskCard(task));
 }
 
+//Template for creating project cards to add to DOM
 export function createProjectCard(project) {
     const newCard = domElement('button', {id: `${project.title}`,class: 'block max-w-sm min-h-full p-6 bg-white border border-yellow-200 rounded-lg shadow hover:bg-yellow-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer'},
                         domElement('h3', {class: 'mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'}, `${project.title}`),
@@ -36,6 +42,8 @@ export function createProjectCard(project) {
     return newCard;
 }
 
+
+//Template for creating task cards to add to DOM
 export function createTaskCard(task) {
     const priorityColor = task.priority;
     const newCard = domElement('button', {id: `${task.title}`, class: `block max-w-sm min-h-full p-6 bg-white border-2 border-l-[14px] ${priorityColor} rounded-lg shadow hover:bg-yellow-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer`},
@@ -48,6 +56,7 @@ export function createTaskCard(task) {
     return newCard;
 }
 
+//Builds the grid that houses both project and task cards
 export function renderDomCards() {
     const cardGrid = domElement('div', {class: 'p-3 m-3 mx-4'},
     domElement('div', {id: 'project-grid',class: 'grid grid-cols-2 md:grid-cols-4 gap-4'})

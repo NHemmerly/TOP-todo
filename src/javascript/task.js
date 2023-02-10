@@ -6,6 +6,7 @@ const taskFactory = (title, dueDate, priority, desc, completed) => {
     return {title, dueDate, priority, desc, completed};
 } 
 
+//Sets the priority variable to a tailwind color class
 function setPriorityColor(priority) {
     switch (priority) {
         case '1':

@@ -8,6 +8,8 @@ function formBase(id) {
 
     return formBase;
 }
+
+//Contains all parts of project form
 export function renderProjectForm() {
     const form = formBase('authentication-modal');
     const formProject = domElement('div', {class: 'px-6 py-6 lg:px-8'},
@@ -31,6 +33,7 @@ export function renderProjectForm() {
     return form;
 }
 
+//contains all parts of task form
 export function renderTaskForm() {
     const radioList = ('w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600');
     const radioInput = ('w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500');

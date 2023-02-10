@@ -1,11 +1,10 @@
-import { projectFactory } from './project.js';
-import { myProjects } from './project.js';
+import { projectFactory, myProjects } from './project.js';
 import { createProjectCard, createTaskCard } from './projectsDOM.js';
 import { taskFactory } from './task';
-
-//Function for adding card to dom using '+' button
 import { validateProjectForm } from './validate.js';
 
+
+//Collects data from forms and places it in an object 
 function collectFormData(e) {
     e.preventDefault();
     const target = e.target;
@@ -19,6 +18,9 @@ function collectFormData(e) {
     return projectArray;
 }
 
+//Validates information from task form, creates an object and adds it to the 
+//current project's task array
+//All creates a new task card using the object's information
 export function addTaskCard(e) {
     let info = collectFormData(e);
     console.log(info);
@@ -33,6 +35,9 @@ export function addTaskCard(e) {
     }
 }
 
+//Validates information from project form and creates new project object 
+//Adds project object to myProjects array 
+//Creates new project card using project object information
 export function addProjectCard(e) {
     let info = collectFormData(e);
     if (!(validateProjectForm(info, 'error-message', myProjects))) {
