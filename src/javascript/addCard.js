@@ -29,7 +29,7 @@ export function addTaskCard(e) {
         return false;
     } else {
         const newTask = taskFactory(info.title, info['due-date'], info.priority, info.desc, info.completed);
-        createTaskCard(newTask);
+        createTaskCard(newTask, currProj);
         currProj.tasks.push(newTask);
         document.getElementById('task-form').reset();
     }

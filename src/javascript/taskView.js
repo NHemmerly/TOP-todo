@@ -13,3 +13,9 @@ export function makeTaskView(projectTitle) {
     document.getElementById('new-project').classList.add('hidden');
     document.getElementById('new-task').classList.remove('hidden');
 }
+
+export function showDetails(e, taskObj) {
+    const target = e.target;
+    const desc = domElement('h5', {class: 'font-normal text-gray-700 dark:text-gray-400 break-normal'}, `Description: ${taskObj.desc}`);
+    target.appendChild(desc);
+}
