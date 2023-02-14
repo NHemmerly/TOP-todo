@@ -14,8 +14,11 @@ export function makeTaskView(projectTitle) {
     document.getElementById('new-task').classList.remove('hidden');
 }
 
-export function showDetails(e, taskObj) {
-    const target = e.target;
-    const desc = domElement('h5', {class: 'font-normal text-gray-700 dark:text-gray-400 break-normal'}, `Description: ${taskObj.desc}`);
-    target.appendChild(desc);
+export function showDetails(taskObj) {
+    const modalHeader = document.getElementById('modal-header');
+    const defaultModal = document.getElementById('defaultModal');
+    const dimmer = document.getElementById('dimmer');
+    defaultModal.classList.remove('hidden');
+    dimmer.classList.remove('hidden');
+    modalHeader.innerText = taskObj.title;
 }

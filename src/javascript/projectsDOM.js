@@ -54,8 +54,8 @@ export function createTaskCard(task, project) {
                         domElement('h5', {class: 'font-normal text-gray-700 dark:text-gray-400'}, `Due: ${task.dueDate}`));
     newCard.classList.add(`border-${priorityColor}`);
     document.getElementById('project-grid').appendChild(newCard);
-    newCard.addEventListener('click', (e) => {
-        showDetails(e, getTaskObj(project, task.title));
+    newCard.addEventListener('click', () => {
+        showDetails(getTaskObj(project, task.title));
     });
     return newCard;
 }
@@ -70,4 +70,22 @@ export function renderDomCards() {
 
 function getTaskObj(project, taskTitle) {
     return project.tasks.find(task => task.title == taskTitle);
+}
+
+export function renderDefaultModal() {
+    const defaultModal = domElement('div', {id: 'defaultModal', tabindex: '-1', 'aria-hidden': 'true', class: 'fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full'},
+                            domElement('div', {class: 'relative w-full h-full max-w-2xl md:h-auto'}, 
+                                domElement('div', {class: 'relative bg-white rounded-lg shadow dark:bg-gray-700'},
+                                    //Task Title
+                                    domElement('div', {class: 'flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600'},
+                                        domElement('h3', {id: 'modal-header', class: 'text-xl font-semibold text-gray-900 dark:text-white'}),
+                                        domElement('a', {'data-modal-target': 'defaultModal', 'data-modal-hide': 'defaultModal', class: 'cursor-pointer mr-1 text-xl text-black dark:text-white'}, 'X')),
+                                    //Task Info
+                                    domElement('div', {class: 'p-6 space-y-6'},
+                                        domElement('h4', {class: 'text-xl font-semibold text-gray-900 dark:text-white'}, 'Due: '),
+                                        domElement('p', {id: 'info-due-date',class: "text-base leading-relaxed text-gray-500 dark:text-gray-400"})))))
+    const dimmer = domElement('div', {id: 'dimmer', class: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40 hidden'})
+
+    document.body.appendChild(defaultModal);
+    document.body.appendChild(dimmer);
 }
