@@ -17,8 +17,16 @@ export function makeTaskView(projectTitle) {
 export function showDetails(taskObj) {
     const modalHeader = document.getElementById('modal-header');
     const defaultModal = document.getElementById('defaultModal');
+    const dueDate = document.getElementById('info-due-date');
+    const prioName = document.getElementById('info-prio');
+    const infoDesc = document.getElementById('info-desc');
+    const infoComplete = document.getElementById('info-complete');
     const dimmer = document.getElementById('dimmer');
     defaultModal.classList.remove('hidden');
     dimmer.classList.remove('hidden');
     modalHeader.innerText = taskObj.title;
+    dueDate.innerText = taskObj.dueDate;
+    prioName.innerText = taskObj.priorityName;
+    infoDesc.innerText = taskObj.desc;
+    infoComplete.innerText = (taskObj.completed == 1) ? 'no' : 'yes';
 }
