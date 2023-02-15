@@ -29,4 +29,9 @@ export function showDetails(taskObj) {
     prioName.innerText = taskObj.priorityName;
     infoDesc.innerText = taskObj.desc;
     infoComplete.innerText = (taskObj.completed == 1) ? 'no' : 'yes';
+
+    const editButton = document.getElementById('edit-button');
+    const deleteButton = document.getElementById('delete-button');
+
+    deleteButton.addEventListener('click', () => deleteTask(taskObj));
 }

@@ -73,7 +73,7 @@ function getTaskObj(project, taskTitle) {
 }
 
 export function renderDefaultModal() {
-    const defaultModal = domElement('div', {id: 'defaultModal', tabindex: '-1', 'aria-hidden': 'true', class: 'flex mx-auto sm:w-3/4 md:w-2/4 z-50 fixed inset-x-0 inset-y-0 p-4 overflow-x-hidden overflow-y-auto hidden'},
+    const defaultModal = domElement('div', {id: 'defaultModal', tabindex: '-1', 'aria-hidden': 'true', class: 'flex mx-auto sm:w-3/4 md:w-2/4 z-50 fixed inset-x-0 inset-y-0 p-4 overflow-x-hidden overflow-y-auto'},
                             domElement('div', {class: 'relative w-full h-full max-w-2xl md:h-auto'}, 
                                 domElement('div', {class: 'relative bg-white rounded-lg shadow dark:bg-gray-700'},
                                     //Task Title
@@ -83,13 +83,17 @@ export function renderDefaultModal() {
                                     //Task Info
                                     domElement('div', {class: 'p-6 space-y-6'},
                                         domElement('h4', {class: 'text-xl font-semibold text-gray-900 dark:text-white'}, 'Due: '),
-                                        domElement('p', {id: 'info-due-date',class: "ml-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
+                                        domElement('p', {id: 'info-due-date',class: "mx-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
                                         domElement('h4', {class: 'text-xl font-semibold text-gray-900 dark:text-white'}, 'Priority: '),
-                                        domElement('p', {id: 'info-prio',class: "ml-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
+                                        domElement('p', {id: 'info-prio',class: "mx-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
                                         domElement('h4', {class: 'text-xl font-semibold text-gray-900 dark:text-white'}, 'Description: '),
-                                        domElement('p', {id: 'info-desc',class: "ml-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
+                                        domElement('p', {id: 'info-desc',class: "break-normal mx-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
                                         domElement('h4', {class: 'text-xl font-semibold text-gray-900 dark:text-white'}, 'Complete?'),
-                                        domElement('p', {id: 'info-complete',class: "ml-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"})))))
+                                        domElement('p', {id: 'info-complete',class: "mx-3 text-base leading-relaxed text-gray-500 dark:text-gray-400"}),
+                                    //Edit and Delete buttons
+                                    domElement('button', {id: 'edit-button', class: 'w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Edit'),
+                                    domElement('button', {id: 'delete-button', class: 'close-button w-full text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center'}, 'Delete Task')
+                                    ))));
     const dimmer = domElement('div', {id: 'dimmer', class: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40 hidden'})
 
     document.body.appendChild(defaultModal);

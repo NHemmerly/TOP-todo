@@ -8,5 +8,3 @@ renderNav();
 renderProjectView();
 renderDomCards();
 renderDefaultModal();
-
-console.log('Hi');
